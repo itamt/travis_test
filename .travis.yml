@@ -9,9 +9,9 @@ dist: trusty
 #dist: xenial
 env:
   matrix:
-    - TESTCASE=tests/tests_1.py
-    - TESTCASE=tests/tests_2.py
-    - TESTCASE=tests/tests_3.py
+    - TESTCASE=tests/test_1.py
+    - TESTCASE=tests/test_2.py
+    - TESTCASE=tests/test_3.py
 matrix:
   exclude:
     - python: "2.7"
