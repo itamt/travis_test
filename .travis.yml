@@ -10,20 +10,27 @@ dist: trusty
 matrix:
   include:
     - python: "2.7"
-      env:
-        - TESTCASE=tests/test_1.py
-        - TESTCASE=tests/test_2.py
-        - TESTCASE=tests/test_3.py
+      env: TESTCASE=tests/test_1.py
+    - python: "2.7"
+      env: TESTCASE=tests/test_2.py
+    - python: "2.7"
+      env: TESTCASE=tests/test_3.py
     - python: "3.6"
-      env:
-        - TESTCASE=tests/test_1.py
-        - TESTCASE=tests/test_2.py
-        - TESTCASE=tests/test_3.py
+      env: TESTCASE=tests/test_1.py
+    - python: "3.6"
+      env: TESTCASE=tests/test_2.py
+    - python: "3.6"
+      env: TESTCASE=tests/test_3.py
     - python: "3.7"
-      env:
-        - TESTCASE=tests/test_1.py
-        - TESTCASE=tests/test_2.py
-        - TESTCASE=tests/test_3.py
+      env: TESTCASE=tests/test_1.py
+      dist: xenial
+      sudo: true
+    - python: "3.7"
+      env: TESTCASE=tests/test_2.py
+      dist: xenial
+      sudo: true
+    - python: "3.7"
+      env: TESTCASE=tests/test_3.py
       dist: xenial
       sudo: true
 script:
