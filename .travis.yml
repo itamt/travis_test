@@ -7,16 +7,26 @@ install:
 # command to run tests
 dist: trusty
 #dist: xenial
-env:
-  matrix:
-    - TESTCASE=tests/test_1.py
-    - TESTCASE=tests/test_2.py
-    - TESTCASE=tests/test_3.py
 matrix:
   include:
     - python: "2.7"
+      env:
+        matrix:
+          - TESTCASE=tests/test_1.py
+          - TESTCASE=tests/test_2.py
+          - TESTCASE=tests/test_3.py
     - python: "3.6"
+      env:
+        matrix:
+          - TESTCASE=tests/test_1.py
+          - TESTCASE=tests/test_2.py
+          - TESTCASE=tests/test_3.py
     - python: "3.7"
+      env:
+        matrix:
+          - TESTCASE=tests/test_1.py
+          - TESTCASE=tests/test_2.py
+          - TESTCASE=tests/test_3.py
       dist: xenial
       sudo: true
 script:
