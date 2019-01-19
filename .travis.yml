@@ -6,23 +6,22 @@ install:
   - "pip install --upgrade pip; pip install --upgrade setuptools; pip install -r test_requirements.txt"
 # command to run tests
 dist: trusty
-#  - trusty
-#  - xenial
+#dist: xenial
+env:
+  matrix:
+    - TESTCASE=tests/tests_1.py
+    - TESTCASE=tests/tests_2.py
+    - TESTCASE=tests/tests_3.py
 matrix:
   exclude:
     - python: "2.7"
-      dist: xenial
     - python: "3.6"
-      dist: xenial
     - python: "3.7"
-      env:
-        - TESTCASE=tests/tests_1.py
-        - TESTCASE=tests/tests_2.py
-        - TESTCASE=tests/tests_3.py
       dist: xenial
       sudo: true
 script:
-  - nosetests $TESTCASE --with-coverage --cover-package=zappa --with-timer
-    #  - coverage combine --append
+  - python $TESTCASE
+#  - nosetests $TESTCASE --with-coverage --cover-package=zappa --with-timer
+#      - coverage combine --append
 after_success:
   coveralls
