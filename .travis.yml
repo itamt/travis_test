@@ -12,10 +12,12 @@ matrix:
     - python: "3.7"
       dist: xenial
       sudo: true
+env:
+  - TESTOPTIONS=--with-coverage --cover-package=zappa --with-timer
 script:
-  - python tests/test_1.py
-  - python tests/test_2.py
-  - python tests/test_3.py
+#  - python tests/test_1.py
+#  - python tests/test_2.py
+#  - python tests/test_3.py
 #  - nosetests $TESTCASE --with-coverage --cover-package=zappa --with-timer
 #      - coverage combine --append
 after_success:
